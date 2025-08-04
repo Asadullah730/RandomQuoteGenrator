@@ -1,16 +1,6 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:random_qoute/DataLayer/quote_static_data.dart';
-import 'package:random_qoute/model/QuoteModel.dart';
-
-class QuoteController extends GetxController {
-  Rx<Quote> currentQuote = quotes[Random().nextInt(quotes.length)].obs;
-
-  void generateQuote() {
-    currentQuote.value = quotes[Random().nextInt(quotes.length)];
-  }
-}
+import 'package:random_qoute/Controller/quote_controller.dart';
 
 class QuoteHomePage extends StatelessWidget {
   final QuoteController controller = Get.put(QuoteController());
@@ -25,15 +15,9 @@ class QuoteHomePage extends StatelessWidget {
       backgroundColor: const Color(0xFFF3E5F5),
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-        title: const Text('✨ Random Quote Generator ✨'),
+        title: const Text(' Helpful Quotes '),
         centerTitle: true,
         elevation: 6,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.wb_sunny, color: Colors.white),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: width * 0.06),
